@@ -1,0 +1,26 @@
+# Ignore the build directory
+build/
+
+# Ignore common C++ backup files
+*.o
+*.obj
+*.out
+*.exe
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignore user-specific files
+*.log
+*.tmp
+*.swp
+*.user
+*.DS_Store
