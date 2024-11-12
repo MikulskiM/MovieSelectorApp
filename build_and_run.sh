@@ -35,7 +35,7 @@ make
 if [ $? -eq 0 ]; then
     echo "Compilation successful."
     echo "Running the program..."
-    ./FilmSelectorApp
+    ./MovieSelectorApp
 else
     echo "Compilation failed."
 fi

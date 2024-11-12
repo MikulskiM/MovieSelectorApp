@@ -1,11 +1,19 @@
 #include <iostream>
+#include "DataHandler.h"
 
-int main() {
+using namespace std;
+
+int main()
+{
     int movieNumber;
-    
-    std::cout << "Choose movie number (1-110): ";
-    std::cin >> movieNumber;
-    std::cout << "You chose movie number: " << movieNumber << std::endl;
-    
+    DataHandler DataHandler;
+
+    cout << "Choose movie number (1-110): ";
+    cin >> movieNumber;
+    cout << "You chose movie number: " << movieNumber << "\n\n";
+
+    string fileName = "../movie_database.csv";
+    DataHandler.ReadData(fileName);
+
     return 0;
 }
