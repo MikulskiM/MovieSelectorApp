@@ -41,6 +41,8 @@ int DataHandler::LoadMovies(string fileName)
     string title, genre1, genre2;
     int year;
 
+    cout << "\nLoading movies from the database...\n";
+
     OpenFile(inputFile, fileName);
 
     while(getline(inputFile, singleLine))
@@ -65,9 +67,11 @@ int DataHandler::ReadMovies()
 {
     if(movies.empty())
     {
-        cerr << "ERROR: 'movies' vector is empty";
+        cerr << "ERROR: 'movies' vector is empty\n";
         return 1;
     }
+
+    cout << "\nReading movies...\n";
 
     // for(int i = 0; i < movies.size(); i++)
     // {
@@ -76,12 +80,49 @@ int DataHandler::ReadMovies()
     // }
 
     int index = 1;
-    for(auto& movie : movies)
+    for(auto &movie : movies)
     {
         cout << index << ". ";
         movie.print();
         index++;
     }
+
+    return 0;
+}
+
+int DataHandler::AddMovie(string title, int year, string genre1, string genre2)
+{
+    cout << "\nAdding a movie...\n";
+    Movie movie(title, year, genre1, genre2);
+    movies.push_back(movie);
+
+    return 0;
+}
+
+int DataHandler::SaveData(string fileName)
+{
+    ofstream file(fileName);
+    string singleLine;
+    string title, genre1, genre2;
+    int year;
+
+    if(movies.empty())
+    {
+        cerr << "ERROR: 'movies' vector is empty\n";
+        return 1;
+    }
+
+    cout << "\nSaving data...\n";
+
+    for(auto &movie : movies)
+    {
+        singleLine = movie.title + "," + to_string(movie.year) + "," +
+                     movie.genre1 + "," + movie.genre2;
+        file << singleLine << "\n";
+    }
+
+    file.close();
+    cout << "\nData saved!\n";
 
     return 0;
 }

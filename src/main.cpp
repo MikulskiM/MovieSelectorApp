@@ -13,8 +13,12 @@ int main()
     cin >> movieNumber;
     cout << "You chose movie number: " << movieNumber << "\n\n";
 
+    DataHandler.ReadData(fileName);
     DataHandler.LoadMovies(fileName);
     DataHandler.ReadMovies();
+
+    // DataHandler.AddMovie("Deadpool & Wolverine", 2024, "Action", "Comedy");
+    // DataHandler.SaveData(fileName);
 
     return 0;
 }

@@ -20,6 +20,8 @@ public:
     int ReadData(string fileName);
     int LoadMovies(string fileName);
     int ReadMovies();
+    int AddMovie(string title, int year, string genre1, string genre2);
+    int SaveData(string fileName);
 };
 
 #endif
