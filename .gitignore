@@ -24,3 +24,17 @@ Makefile
 *.swp
 *.user
 *.DS_Store
+
+# VS Code specific files
+.vscode/
+*.code-workspace
+
+# Windows system files
+Thumbs.db
+desktop.ini
+
+# Common temporary files
+*.swo
+
+# Editor backup files
+*~

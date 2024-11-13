@@ -10,8 +10,11 @@ set(CMAKE_CXX_STANDARD 20)
 # Treat warnings as errors?
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
 
+# Add "include/" to the header search path
+include_directories(include)
+
 # Source files:
 add_executable(MovieSelectorApp
-    main.cpp
-    DataHandler.cpp
+    src/main.cpp
+    src/DataHandler.cpp
 )

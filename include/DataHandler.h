@@ -6,6 +6,10 @@
 
 using namespace std;
 
+/*
+ * @class DataHandler
+ * @brief Handles all data functionalities like loading, saving, reading...
+ */
 class DataHandler
 {
 public:
