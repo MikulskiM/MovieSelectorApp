@@ -7,13 +7,14 @@ int main()
 {
     int movieNumber;
     DataHandler DataHandler;
+    string fileName = "../movie_database.csv";
 
     cout << "Choose movie number (1-110): ";
     cin >> movieNumber;
     cout << "You chose movie number: " << movieNumber << "\n\n";
 
-    string fileName = "../movie_database.csv";
-    DataHandler.ReadData(fileName);
+    DataHandler.LoadMovies(fileName);
+    DataHandler.ReadMovies();
 
     return 0;
 }

@@ -2,6 +2,8 @@
 #define DATAHANDLER_H
 
 #include <string>
+#include <vector>
+#include <sstream>
 #include "Movie.h"
 
 using namespace std;
@@ -13,7 +15,11 @@ using namespace std;
 class DataHandler
 {
 public:
-    int ReadData(string filename);
+    vector<Movie> movies;
+
+    int ReadData(string fileName);
+    int LoadMovies(string fileName);
+    int ReadMovies();
 };
 
 #endif
