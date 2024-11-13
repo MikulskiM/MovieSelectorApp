@@ -69,10 +69,18 @@ int DataHandler::ReadMovies()
         return 1;
     }
 
-    for(int i = 0; i < movies.size(); i++)
+    // for(int i = 0; i < movies.size(); i++)
+    // {
+    //     cout << i+1 << ". ";
+    //     movies[i].print();
+    // }
+
+    int index = 1;
+    for(auto& movie : movies)
     {
-        cout << i << ". ";
-        movies[i].print();
+        cout << index << ". ";
+        movie.print();
+        index++;
     }
 
     return 0;
