@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <algorithm>    // sort
 #include "DataHandler.h"
 
 using namespace std;
@@ -97,6 +98,41 @@ int DataHandler::ReadMovies()
         cout << index << ". ";
         movie.print();
         index++;
+    }
+
+    return 0;
+}
+
+int DataHandler::DisplayScoring()
+{
+    if(movies.empty())
+    {
+        cerr << "ERROR: 'movies' vector is empty\n";
+        return 1;
+    }
+
+    vector<Movie> sortedMovies = movies;
+    sort(sortedMovies.begin(), sortedMovies.end(), [](Movie &movie1, Movie &movie2)
+    {
+        return movie1.scoring < movie2.scoring;
+    });
+
+    cout << setw(5) << "Score"
+         << setw(15) << "Title"
+         << setw(8) << "Year"
+         << setw(10) << "Genre1"
+         << setw(12) << "Genre2\n";
+
+    // Wyświetlanie linii oddzielającej
+    cout << setw(5) << "-----"
+         << setw(15) << "-----"
+         << setw(8) << "-----"
+         << setw(10) << "-----"
+         << setw(12) << "-----\n";
+
+    for(auto &movie : sortedMovies)
+    {
+        movie.printWithScoring();
     }
 
     return 0;

@@ -22,6 +22,7 @@ public:
     int ReadMovies();
     int AddMovie(string title, int year, string genre1, string genre2);
     int SaveData(string fileName);
+    int DisplayScoring();
 };
 
 #endif
