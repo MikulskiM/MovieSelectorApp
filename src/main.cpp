@@ -17,8 +17,8 @@ int main()
     DataHandler.LoadMovies(fileName);
     DataHandler.ReadMovies();
 
-    // DataHandler.AddMovie("Deadpool & Wolverine", 2024, "Action", "Comedy");
-    // DataHandler.SaveData(fileName);
+    DataHandler.AddMovie("Deadpool & Wolverine", 2024, "Action", "Comedy");
+    DataHandler.SaveData(fileName);
 
     return 0;
 }

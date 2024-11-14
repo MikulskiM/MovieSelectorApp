@@ -17,6 +17,18 @@ int OpenFile(ifstream &inputFile, string fileName)
     return 0;
 }
 
+bool movieAlreadyOnTheList(string &title, vector<Movie> movies)
+{
+    for(auto &movie : movies)
+    {
+        if(movie.title == title)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 int DataHandler::ReadData(string fileName)
 {
     ifstream inputFile;
@@ -93,9 +105,14 @@ int DataHandler::ReadMovies()
 int DataHandler::AddMovie(string title, int year, string genre1, string genre2)
 {
     cout << "\nAdding a movie...\n";
+
+    if(movieAlreadyOnTheList(title, movies)){
+        cout << "Movie Already on the list. Adding movie was blocked!\n";
+        return 0;
+    }
+
     Movie movie(title, year, genre1, genre2);
     movies.push_back(movie);
-
     return 0;
 }
 
