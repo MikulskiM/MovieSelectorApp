@@ -1,4 +1,3 @@
-title,year,genre1,genre2
 The Shawshank Redemption,1994,Drama,Crime
 The Godfather,1972,Crime,Drama
 The Dark Knight,2008,Action,Crime
@@ -38,7 +37,7 @@ The Truman Show,1998,Drama,Sci-Fi
 A Beautiful Mind,2001,Biography,Drama
 The Social Network,2010,Drama,Biography
 WALL-E,2008,Animation,Adventure
-Amélie,2001,Comedy,Romance
+Amelie,2001,Comedy,Romance
 The Shining,1980,Horror,Thriller
 The Sixth Sense,1999,Mystery,Thriller
 Once Upon a Time in Hollywood,2019,Comedy,Drama
@@ -86,7 +85,7 @@ The Notebook,2004,Drama,Romance
 La La Land,2016,Comedy,Romance
 Moulin Rouge!,2001,Drama,Musical
 The Phantom of the Opera,2004,Drama,Musical
-Les Misérables,2012,Drama,Musical
+Les Miserables,2012,Drama,Musical
 A Star Is Born,2018,Drama,Music
 Chicago,2002,Crime,Musical
 Mamma Mia!,2008,Comedy,Musical
@@ -115,3 +114,4 @@ Poltergeist,1982,Horror,Thriller
 Scream,1996,Horror,Mystery
 The Shining,1980,Horror,Thriller
 Midsommar,2019,Horror,Drama
+Deadpool & Wolverine,2024,Action,Comedy
