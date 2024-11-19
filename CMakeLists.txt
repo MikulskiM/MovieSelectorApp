@@ -17,5 +17,5 @@ include_directories(include)
 add_executable(MovieSelectorApp
     src/main.cpp
     src/DataHandler.cpp
-    src/Questionaire.cpp
+    src/MovieSelector.cpp
 )

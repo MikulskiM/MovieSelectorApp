@@ -1,10 +1,10 @@
 #include <iostream>
 #include <limits>
-#include "Questionaire.h"
+#include "MovieSelector.h"
 
 using namespace std;
 
-char askQuestion(string questionWithAnswers, string possibleAnswers)
+char MovieSelector::askQuestion(string questionWithAnswers, string possibleAnswers)
 {
     char answer;
 
@@ -28,7 +28,7 @@ char askQuestion(string questionWithAnswers, string possibleAnswers)
     return answer;
 }
 
-void addPoint(string genre, vector<Movie> &movies)
+void MovieSelector::addPoint(string genre, vector<Movie> &movies)
 {
     cout << genre << "+\n";
     for(auto &movie : movies)
@@ -40,7 +40,7 @@ void addPoint(string genre, vector<Movie> &movies)
     }
 }
 
-void askQuestions(vector<Movie> &movies)
+void MovieSelector::askQuestions(vector<Movie> &movies)
 {
     // Pytanie 1
     char answer = askQuestion("\nWould you like to watch a movie with a complex plot or something simple and straightforward?\n"
