@@ -12,6 +12,7 @@ class MovieSelector
 {
 public:
     void askQuestions(vector<Movie> &movies);
+    void proposeMovies(vector<Movie> &movies);
 
 private:
     char askQuestion(string questionWithAnswers, string possibleAnswers);

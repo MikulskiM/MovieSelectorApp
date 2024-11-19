@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <algorithm>    // sort
 #include "MovieSelector.h"
 
 using namespace std;
@@ -121,5 +122,35 @@ void MovieSelector::askQuestions(vector<Movie> &movies)
     {
         addPoint("Adventure", movies);
         addPoint("Sci-Fi", movies);
+    }
+}
+
+void MovieSelector::proposeMovies(vector<Movie> &movies)
+{
+    vector<Movie> sortedMovies = movies;
+    int topScore = 0;
+
+    sort(sortedMovies.begin(), sortedMovies.end(), [](Movie &movie1, Movie &movie2)
+    {
+        return movie1.scoring < movie2.scoring;
+    });
+
+    topScore = sortedMovies.back().scoring;
+    cout << "TOP SCORING = " << topScore << "\n";
+    cout << "\n\tTop movies based on your answers:\n";
+    for(auto &movie : movies)
+    {
+        if(movie.scoring == topScore)
+        {
+            movie.printWithScoring();
+        }
+    }
+    cout << "\n\tSecond place movies you might be interested in:\n";
+    for(auto &movie : movies)
+    {
+        if(movie.scoring == topScore-1)
+        {
+            movie.printWithScoring();
+        }
     }
 }

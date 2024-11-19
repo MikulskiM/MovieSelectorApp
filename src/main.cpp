@@ -20,5 +20,7 @@ int main()
     // DataHandler.SaveData(fileName);
     DataHandler.DisplayScoring();
 
+    MovieSelector.proposeMovies(DataHandler.movies);
+
     return 0;
 }
