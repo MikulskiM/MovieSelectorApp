@@ -5,6 +5,8 @@
 
 using namespace std;
 
+#define ENOUGH_POINTS 3
+
 char MovieSelector::askQuestion(string questionWithAnswers, string possibleAnswers)
 {
     char answer;
@@ -43,7 +45,7 @@ void MovieSelector::addPoint(string genre, vector<Movie> &movies)
 
 void MovieSelector::askQuestions(vector<Movie> &movies)
 {
-    // Pytanie 1
+    // 1
     char answer = askQuestion("\nWould you like to watch a movie with a complex plot or something simple and straightforward?\n"
                               "a) Complex\n"
                               "b) Simple", "ab");
@@ -61,7 +63,7 @@ void MovieSelector::askQuestions(vector<Movie> &movies)
         addPoint("Family", movies);
     }
 
-    // Pytanie 2
+    // 2
     answer = askQuestion("\nDo you want an action-packed movie or something more relaxing?\n"
                          "a) Action\n"
                          "b) Relaxing", "ab");
@@ -79,7 +81,7 @@ void MovieSelector::askQuestions(vector<Movie> &movies)
         addPoint("Romance", movies);
     }
 
-    // Pytanie 3
+    // 3
     answer = askQuestion("\nDo you enjoy humorous or family-friendly movies?\n"
                           "a) Humorous\n"
                           "b) Not humorous", "ab");
@@ -94,7 +96,7 @@ void MovieSelector::askQuestions(vector<Movie> &movies)
         addPoint("Horror", movies);
     }
 
-    // Pytanie 4
+    // 4
     answer = askQuestion("\nWould you prefer exploring imaginative worlds or realistic stories?\n"
                           "a) Imaginative\n"
                           "b) Realistic", "ab");
@@ -109,7 +111,7 @@ void MovieSelector::askQuestions(vector<Movie> &movies)
         addPoint("Crime", movies);
     }
 
-    // Pytanie 5
+    // 5
     answer = askQuestion("\nDo you like suspense and mystery, or epic adventures?\n"
                           "a) Suspense and mystery\n"
                           "b) Epic adventures", "ab");
@@ -122,6 +124,77 @@ void MovieSelector::askQuestions(vector<Movie> &movies)
     {
         addPoint("Adventure", movies);
         addPoint("Sci-Fi", movies);
+    }
+
+    vector<Movie> sortedMovies = movies;
+    int topScore = 0;
+
+    sort(sortedMovies.begin(), sortedMovies.end(), [](Movie &movie1, Movie &movie2)
+    {
+        return movie1.scoring < movie2.scoring;
+    });
+
+    topScore = sortedMovies.back().scoring;
+    cout << "TOP SCORING = " << topScore << "\n";
+
+    if(topScore == ENOUGH_POINTS)
+    {
+        return;
+    }
+    else
+    {
+        cout << topScore << "is not enough data to choose a good movie for you. Asking more questions...\n";
+    }
+
+    // 6
+    answer = askQuestion("\nDo you prefer movies that explore human achievements or dive into fantastical adventures?\n"
+                        "a) Human achievements\n"
+                        "b) Fantastical adventures", "ab");
+    if(answer == 'a')
+    {
+        addPoint("Biography", movies);
+        addPoint("Drama", movies);
+        addPoint("Crime", movies);
+    }
+    else
+    {
+        addPoint("Adventure", movies);
+        addPoint("Fantasy", movies);
+        addPoint("Sci-Fi", movies);
+    }
+
+    // 7
+    answer = askQuestion("\nAre you in the mood for a chilling experience or a heartwarming one?\n"
+                        "a) Chilling\n"
+                        "b) Heartwarming", "ab");
+    if(answer == 'a')
+    {
+        addPoint("Horror", movies);
+        addPoint("Thriller", movies);
+        addPoint("Mystery", movies);
+    }
+    else
+    {
+        addPoint("Comedy", movies);
+        addPoint("Family", movies);
+        addPoint("Animation", movies);
+    }
+
+    // 8
+    answer = askQuestion("\nDo you enjoy movies that are emotionally intense or those that provide a fun escape?\n"
+                        "a) Emotionally intense\n"
+                        "b) Fun escape", "ab");
+    if(answer == 'a')
+    {
+        addPoint("Thriller", movies);
+        addPoint("Drama", movies);
+        addPoint("Romance", movies);
+    }
+    else
+    {
+        addPoint("Comedy", movies);
+        addPoint("Animation", movies);
+        addPoint("Musical", movies);
     }
 }
 

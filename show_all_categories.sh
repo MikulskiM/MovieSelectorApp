@@ -4,7 +4,7 @@
 file_path="movie_database.csv"
 
 # Load data from category cabinets, separate them, remove duplicates and sort them
-cut -d ',' -f 3 "$file_path" | tr ',' '\n' | sed 's/^[ \t]*//;s/[ \t]*$//' | sort | uniq > categories.txt
+cut -d ',' -f 3 "$file_path" | tr ',' '\n' | sed 's/^[ \t]*//;s/[ \t]*$//' | sort | uniq > unique_categories.txt
 
 # Display unique categories
 echo "Unique movie categories:"
