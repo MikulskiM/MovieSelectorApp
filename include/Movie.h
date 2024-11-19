@@ -25,7 +25,7 @@ struct Movie
     void printWithScoring()
     {
         cout << setw(4) << right << scoring << " - "
-             << setw(14) << left << title.substr(0,14) << " - "
+             << setw(25) << left << title.substr(0,25) << " - "
              << setw(5) << year << " - "
              << setw(8) << genre1.substr(0,8) << " - "
              << setw(8) << genre2.substr(0,8) << "\n";

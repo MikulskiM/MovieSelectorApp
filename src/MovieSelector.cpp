@@ -43,6 +43,83 @@ void MovieSelector::addPoint(string genre, vector<Movie> &movies)
     }
 }
 
+void MovieSelector::displayResults(vector<Movie> &movies)
+{
+    vector<Movie> sortedMovies = movies;
+
+    sort(sortedMovies.begin(), sortedMovies.end(), [](Movie &movie1, Movie &movie2)
+    {
+        return movie1.scoring < movie2.scoring;
+    });
+
+    topScore = sortedMovies.back().scoring;
+    cout << "TOP SCORING = " << topScore << "\n";
+
+    if(topScore == ENOUGH_POINTS)
+    {
+        proposeMovies(sortedMovies);
+    }
+    else
+    {
+        cout << topScore << "is not enough data to choose a good movie for you. Asking more questions...\n";
+    }
+}
+
+void MovieSelector::moreQuestions(vector<Movie> &movies)
+{
+    // 6
+    char answer = askQuestion("\nDo you prefer movies that explore human achievements or dive into fantastical adventures?\n"
+                        "a) Human achievements\n"
+                        "b) Fantastical adventures", "ab");
+    if(answer == 'a')
+    {
+        addPoint("Biography", movies);
+        addPoint("Drama", movies);
+        addPoint("Crime", movies);
+    }
+    else
+    {
+        addPoint("Adventure", movies);
+        addPoint("Fantasy", movies);
+        addPoint("Sci-Fi", movies);
+    }
+
+    // 7
+    answer = askQuestion("\nAre you in the mood for a chilling experience or a heartwarming one?\n"
+                        "a) Chilling\n"
+                        "b) Heartwarming", "ab");
+    if(answer == 'a')
+    {
+        addPoint("Horror", movies);
+        addPoint("Thriller", movies);
+        addPoint("Mystery", movies);
+    }
+    else
+    {
+        addPoint("Comedy", movies);
+        addPoint("Family", movies);
+        addPoint("Animation", movies);
+    }
+
+    // 8
+    answer = askQuestion("\nDo you enjoy movies that are emotionally intense or those that provide a fun escape?\n"
+                        "a) Emotionally intense\n"
+                        "b) Fun escape", "ab");
+    if(answer == 'a')
+    {
+        addPoint("Thriller", movies);
+        addPoint("Drama", movies);
+        addPoint("Romance", movies);
+    }
+    else
+    {
+        addPoint("Comedy", movies);
+        addPoint("Animation", movies);
+        addPoint("Musical", movies);
+    }
+    displayResults(movies);
+}
+
 void MovieSelector::askQuestions(vector<Movie> &movies)
 {
     // 1
@@ -126,82 +203,23 @@ void MovieSelector::askQuestions(vector<Movie> &movies)
         addPoint("Sci-Fi", movies);
     }
 
-    vector<Movie> sortedMovies = movies;
-    int topScore = 0;
+    displayResults(movies);
 
-    sort(sortedMovies.begin(), sortedMovies.end(), [](Movie &movie1, Movie &movie2)
-    {
-        return movie1.scoring < movie2.scoring;
-    });
-
-    topScore = sortedMovies.back().scoring;
-    cout << "TOP SCORING = " << topScore << "\n";
-
-    if(topScore == ENOUGH_POINTS)
-    {
-        return;
-    }
-    else
-    {
-        cout << topScore << "is not enough data to choose a good movie for you. Asking more questions...\n";
-    }
-
-    // 6
-    answer = askQuestion("\nDo you prefer movies that explore human achievements or dive into fantastical adventures?\n"
-                        "a) Human achievements\n"
-                        "b) Fantastical adventures", "ab");
+    cout << "Do you want to get more questions?\na) yes\nb) no, finished\n";
+    cin >> answer;
     if(answer == 'a')
     {
-        addPoint("Biography", movies);
-        addPoint("Drama", movies);
-        addPoint("Crime", movies);
+        moreQuestions(movies);
     }
     else
     {
-        addPoint("Adventure", movies);
-        addPoint("Fantasy", movies);
-        addPoint("Sci-Fi", movies);
-    }
-
-    // 7
-    answer = askQuestion("\nAre you in the mood for a chilling experience or a heartwarming one?\n"
-                        "a) Chilling\n"
-                        "b) Heartwarming", "ab");
-    if(answer == 'a')
-    {
-        addPoint("Horror", movies);
-        addPoint("Thriller", movies);
-        addPoint("Mystery", movies);
-    }
-    else
-    {
-        addPoint("Comedy", movies);
-        addPoint("Family", movies);
-        addPoint("Animation", movies);
-    }
-
-    // 8
-    answer = askQuestion("\nDo you enjoy movies that are emotionally intense or those that provide a fun escape?\n"
-                        "a) Emotionally intense\n"
-                        "b) Fun escape", "ab");
-    if(answer == 'a')
-    {
-        addPoint("Thriller", movies);
-        addPoint("Drama", movies);
-        addPoint("Romance", movies);
-    }
-    else
-    {
-        addPoint("Comedy", movies);
-        addPoint("Animation", movies);
-        addPoint("Musical", movies);
+        cout << "FINISHED...\n";
     }
 }
 
 void MovieSelector::proposeMovies(vector<Movie> &movies)
 {
     vector<Movie> sortedMovies = movies;
-    int topScore = 0;
 
     sort(sortedMovies.begin(), sortedMovies.end(), [](Movie &movie1, Movie &movie2)
     {

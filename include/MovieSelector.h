@@ -13,10 +13,14 @@ class MovieSelector
 public:
     void askQuestions(vector<Movie> &movies);
     void proposeMovies(vector<Movie> &movies);
+    void moreQuestions(vector<Movie> &movies);
+    void displayResults(vector<Movie> &movies);
 
 private:
     char askQuestion(string questionWithAnswers, string possibleAnswers);
     void addPoint(string genre, vector<Movie> &movies);
+
+    int topScore = 0;
 };
 
 #endif

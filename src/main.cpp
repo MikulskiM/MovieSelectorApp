@@ -10,15 +10,15 @@ int main()
     MovieSelector MovieSelector;
     string fileName = "../movie_database.csv";
 
-    DataHandler.ReadData(fileName);
+    // DataHandler.ReadData(fileName);
     DataHandler.LoadMovies(fileName);
-    DataHandler.ReadMovies();
+    // DataHandler.ReadMovies();
 
     MovieSelector.askQuestions(DataHandler.movies);
 
     // DataHandler.AddMovie("Deadpool & Wolverine", 2024, "Action", "Comedy");
     // DataHandler.SaveData(fileName);
-    DataHandler.DisplayScoring();
+    // DataHandler.DisplayScoring();
 
     MovieSelector.proposeMovies(DataHandler.movies);
 

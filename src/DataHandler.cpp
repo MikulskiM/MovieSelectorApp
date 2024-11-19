@@ -118,14 +118,14 @@ int DataHandler::DisplayScoring()
     });
 
     cout << setw(5) << "Score"
-         << setw(15) << "Title"
+         << setw(25) << "Title"
          << setw(8) << "Year"
          << setw(10) << "Genre1"
          << setw(12) << "Genre2\n";
 
     // Wyświetlanie linii oddzielającej
     cout << setw(5) << "-----"
-         << setw(15) << "-----"
+         << setw(25) << "-----"
          << setw(8) << "-----"
          << setw(10) << "-----"
          << setw(12) << "-----\n";
